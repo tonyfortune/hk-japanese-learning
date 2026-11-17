@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-HK">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JLPT 模擬測驗 & 草むしり検定證書｜港人日語 N5–N3 互動學習平台</title>
+<style>
+  :root {
+    --bg: #FDFBF7;
+    --card: #FFFFFF;
+    --ink: #1E293B;
+    --muted: #64748B;
+    --border: #E2E8F0;
+    --primary: #E11D48;
+    --primary-soft: #FFE4E6;
+    --indigo: #2563EB;
+    --indigo-soft: #DBEAFE;
+    --emerald: #059669;
+    --emerald-soft: #D1FAE5;
+    --amber: #D97706;
+    --amber-soft: #FEF3C7;
+    --purple: #7C3AED;
+    --purple-soft: #EDE9FE;
+    --shadow: 0 4px 20px rgba(15, 23, 42, 0.06);
+    --radius: 16px;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang HK", "Microsoft JhengHei", "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.65;
+    padding-bottom: 64px;
+  }
+  .navbar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(255, 255, 255, 0.94);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+    padding: 10px 16px;
+  }
+  .nav-inner {
+    max-width: 1120px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+  }
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: var(--ink);
+    font-weight: 800;
+    font-size: 1.08rem;
+  }
+  .brand-badge {
+    background: var(--primary);
+    color: #fff;
+    padding: 3px 9px;
+    border-radius: 8px;
+    font-size: 0.78rem;
+    letter-spacing: 0.5px;
+  }
+  .nav-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  .nav-links a {
+    text-decoration: none;
+    color: var(--muted);
+    font-weight: 600;
+    font-size: 0.9rem;
+    padding: 7px 13px;
+    border-radius: 10px;
+    transition: all 0.18s;
+  }
+  .nav-links a:hover {
+    background: #F1F5F9;
+    color: var(--ink);
+  }
+  .nav-links a.active {
+    background: var(--primary-soft);
+    color: var(--primary);
+  }
+  .container {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 24px 16px;
+  }
+  .hero {
+    background: linear-gradient(135deg, #FFF1F2 0%, #EFF6FF 55%, #ECFDF5 100%);
+    border: 1px solid var(--border);
+    border-radius: 22px;
+    padding: 28px 24px;
+    margin-bottom: 24px;
+    box-shadow: var(--shadow);
+  }
+  .hero h1 {
+    font-size: 1.65rem;
+    font-weight: 800;
+    margin-bottom: 8px;
+    color: #0F172A;
+  }
+  .hero p {
+    color: #475569;
+    font-size: 0.98rem;
+    max-width: 780px;
+  }
+  .card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 20px;
+    box-shadow: var(--shadow);
+    margin-bottom: 20px;
+  }
+  .card-title {
+    font-size: 1.15rem;
+    font-weight: 800;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px; }
+  .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 16px; }
+  .grid-4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px; }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    border: 1px solid var(--border);
+    background: #fff;
+    color: var(--ink);
+    font-weight: 600;
+    font-size: 0.88rem;
+    padding: 8px 14px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.16s;
+    text-decoration: none;
+  }
+  .btn:hover { background: #F8FAFC; transform: translateY(-1px); }
+  .btn-primary { background: var(--primary); color: #fff; border-color: var(--primary); }
+  .btn-primary:hover { background: #BE123C; }
+  .btn-indigo { background: var(--indigo); color: #fff; border-color: var(--indigo); }
+  .btn-indigo:hover { background: #1D4ED8; }
+  .btn-emerald { background: var(--emerald); color: #fff; border-color: var(--emerald); }
+  .btn-emerald:hover { background: #047857; }
+  .btn-sm { padding: 5px 10px; font-size: 0.8rem; border-radius: 8px; }
+  .badge {
+    display: inline-block;
+    padding: 3px 9px;
+    border-radius: 999px;
+    font-size: 0.76rem;
+    font-weight: 700;
+  }
+  .badge-n5 { background: var(--emerald-soft); color: var(--emerald); }
+  .badge-n4 { background: var(--indigo-soft); color: var(--indigo); }
+  .badge-n3 { background: var(--purple-soft); color: var(--purple); }
+  .badge-amber { background: var(--amber-soft); color: var(--amber); }
+  .tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 18px;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 12px;
+  }
+  .tab-btn {
+    padding: 9px 16px;
+    border-radius: 11px;
+    border: 1px solid var(--border);
+    background: #fff;
+    color: var(--muted);
+    font-weight: 700;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.16s;
+  }
+  .tab-btn.active {
+    background: var(--ink);
+    color: #fff;
+    border-color: var(--ink);
+  }
+  .tts-bar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+    background: #F8FAFC;
+    border: 1px solid var(--border);
+    padding: 10px 14px;
+    border-radius: 12px;
+    margin-bottom: 16px;
+    font-size: 0.85rem;
+  }
+  .token-box {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 8px;
+  }
+  .token-chip {
+    background: #F1F5F9;
+    border: 1px solid #CBD5E1;
+    padding: 3px 9px;
+    border-radius: 8px;
+    font-size: 0.82rem;
+    transition: all 0.15s;
+  }
+  .token-chip.speaking {
+    background: var(--amber-soft);
+    border-color: var(--amber);
+    color: #92400E;
+    font-weight: 700;
+    transform: scale(1.05);
+  }
+  .toast {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #0F172A;
+    color: #fff;
+    padding: 10px 18px;
+    border-radius: 12px;
+    font-size: 0.88rem;
+    font-weight: 600;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s;
+    z-index: 999;
+  }
+  .toast.show { opacity: 1; }
+  footer {
+    max-width: 1120px;
+    margin: 28px auto 0;
+    padding: 18px 16px;
+    border-top: 1px solid var(--border);
+    color: var(--muted);
+    font-size: 0.84rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+  }
+</style>
+</head>
+<body>
+<nav class="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="brand">
+      <span class="brand-badge">HK → JP</span>
+      <span>港人日語 N5–N3 學習平台</span>
+    </a>
+    <div class="nav-links">
+      <a href="index.html" class="">🏠 學習總覽</a>
+      <a href="classroom.html" class="">📚 課程教室</a>
+      <a href="practice.html" class="">🎧 專項練習庫</a>
+      <a href="exam.html" class="active">🎓 測驗 &amp; 草むしり検定</a>
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+  <section class="hero">
+    <h1>🎓 JLPT N5–N3 模擬測驗 &amp;《草むしり検定》證書頒發</h1>
+    <p>選擇目標等級完成 10 題精選模擬試題（涵蓋文字語彙、文法與語音聽解），成績達 <strong>70% 或以上</strong> 即可即時獲頒專屬《草むしり検定》電子證書（支援自訂姓名及高清 PNG 下載）！</p>
+  </section>
+
+  <div class="tts-bar">
+    <span>🔊 <strong>聽解試題語音引擎：</strong><span id="voice-status">偵測中...</span></span>
+    <div style="margin-left:auto;display:flex;gap:8px;align-items:center;flex-wrap:wrap;">
+      <label style="font-weight:700;">考生姓名：</label>
+      <input id="candidate-name" type="text" class="btn" style="cursor:text;width:180px;" placeholder="輸入證書顯示姓名" onchange="updateCandidateName(this.value)">
+    </div>
+  </div>
+
+  <!-- Level Selection -->
+  <div class="tabs">
+    <button class="tab-btn active" id="lvl-btn-N5" onclick="selectExamLevel('N5')">🌱 N5 模擬試（對應草むしり検定 5級）</button>
+    <button class="tab-btn" id="lvl-btn-N4" onclick="selectExamLevel('N4')">🌿 N4 模擬試（對應草むしり検定 4級）</button>
+    <button class="tab-btn" id="lvl-btn-N3" onclick="selectExamLevel('N3')">🌳 N3 模擬試（對應草むしり検定 3級）</button>
+  </div>
+
+  <!-- Quiz Container -->
+  <div id="quiz-container"></div>
+
+  <!-- Result & Certificate Section -->
+  <div id="cert-section" class="card" style="display:none;border:2px solid var(--emerald);background:#F0FDF4;">
+    <div class="card-title">
+      <span id="result-headline" style="font-size:1.3rem;color:var(--emerald);">🎉 恭喜合格！</span>
+      <button class="btn btn-emerald" onclick="downloadCertificate()">⬇️ 下載高清 PNG 證書圖片</button>
+    </div>
+    <p id="result-summary" style="margin-bottom:16px;font-weight:600;"></p>
+    <div style="overflow-x:auto;text-align:center;padding:8px 0;">
+      <canvas id="cert-canvas" width="900" height="620" style="max-width:100%;height:auto;border-radius:14px;box-shadow:0 10px 30px rgba(0,0,0,0.12);background:#fff;"></canvas>
+    </div>
+  </div>
+</div>
+
+<script>
+const EXAM_BANK = {
+  N5: [
+    { q: '「新しい」の正しい読み方はどれですか。', options: ['あたらしい', 'あだらしい', 'おたらしい', 'あたらい'], ans: 0, exp: '「新しい」讀作 あたらしい（atarashii），意思是「新的」。' },
+    { q: 'きのう　デパート（　）　くつを　かいました。', options: ['に', 'で', 'へ', 'を'], ans: 1, exp: '動作進行的場所（在百貨公司買鞋）用助詞「で」。' },
+    { q: 'すみません、この　りんごは　一つ（　）ですか。', options: ['いくら', 'いくつ', 'いつ', 'どこ'], ans: 0, exp: '詢問價錢用「いくら」（多少錢）；「いくつ」則是問數量或年齡。' },
+    { q: 'へやに　ねこが　二ひき（　）。', options: ['あります', 'います', 'します', 'なります'], ans: 1, exp: '貓咪是有生命的動物，存在句必須使用「います」。' },
+    { q: 'あしたは　やすみですから、はやく（　）もいいです。', options: ['おきなくて', 'おきない', 'おきて', 'おきる'], ans: 0, exp: '「〜なくてもいいです」表示「不需要……也可以」（唔使咁早起身）。' },
+    { q: '「切符」の意味はどれですか。', options: ['車票／門票', '郵票', '明信片', '收據'], ans: 0, exp: '「切符（きっぷ）」是車飛/入場券；郵票是「切手（きって）」。' },
+    { q: 'まいにち　こうえん（　）　さんぽします。', options: ['を', 'に', 'へ', 'と'], ans: 0, exp: '在公園等空間內移動、散步、跑步，經過的場所用助詞「を」。' },
+    { q: 'この　ラーメンは　とても（　）です。', options: ['おいしかった', 'おいしいかった', 'おいしくだった', 'おいしいでした'], ans: 0, exp: 'い形容詞「おいしい」的過去式是去「い」加「かった」→「おいしかった」。' },
+    { q: '【聽解題】點擊播放語音，選出正確回應：', audio: 'お名前と、お電話番号をお願いします。', options: ['はい、こちらに書きます。', 'いいえ、昨日食べました。', 'はい、三時からです。', 'どういたしまして。'], ans: 0, exp: '店員請你填寫姓名和電話號碼，回答「はい、こちらに書きます（好，我寫喺呢度）」最自然。' },
+    { q: '「水曜日」は何曜日ですか。', options: ['星期三', '星期二', '星期四', '星期五'], ans: 0, exp: '日月火水木金土，水曜日即是星期三。' }
+  ],
+  N4: [
+    { q: '雨が　ふり（　）ですから、かさを　持って行きましょう。', options: ['そう', 'よう', 'らしい', 'みたい'], ans: 0, exp: '動詞ます形去ます＋「そうです」表示眼見的樣態推測（睇個天好似就快落雨）。' },
+    { q: '日本へ　行く（　）、パスポートを　とりました。', options: ['ために', 'ように', 'のに', 'せいで'], ans: 0, exp: '意志性目的「為了去日本而辦理護照」，用動詞辞書形＋「ために」。' },
+    { q: 'この　かんじは　むずかしくて、（　）。', options: ['よめません', 'よみません', 'よまれません', 'よませません'], ans: 0, exp: '「読む」的可能形否定「読めません」（讀唔出／唔識讀）。' },
+    { q: '電車の中に　かばんを　わすれて（　）。', options: ['しまいました', 'おきました', 'みました', 'ありました'], ans: 0, exp: '「〜てしまいました」表達唔小心遺漏物品的遺憾語氣。' },
+    { q: '友だちに　道を（　）、おくれてしまいました。', options: ['まちがえられて', 'まちがえて', 'まちがって', 'まちがわれて'], ans: 2, exp: '因為自己搞錯路而遲到，原因て形「道を間違って」。' },
+    { q: '「準備」の正しい読み方はどれですか。', options: ['じゅんび', 'しゅんび', 'じゅんぴ', 'しゅんぴ'], ans: 0, exp: '「準備」讀作 じゅんび（junbi）。' },
+    { q: '先生は　もう　お帰りに（　）。', options: ['なりました', 'しました', 'いました', 'ありました'], ans: 0, exp: '尊他語句型「お＋動詞ます形＋になる」→「お帰りになりました」。' },
+    { q: '日本の　生活に　やっと（　）きました。', options: ['なれて', 'なって', 'して', 'おぼえて'], ans: 0, exp: '「慣れる（なれる）」表示習慣，「慣れてきました」意為「漸漸習慣了」。' },
+    { q: '【聽解題】點擊播放語音，選出對話地點：', audio: 'お客様、館内でのフラッシュ撮影はご遠慮ください。', options: ['美術館／博物館', '拉麵店', '跑步徑', '機場跑道'], ans: 0, exp: '廣播提醒「館內請勿使用閃光燈拍照」，常見於美術館或博物館。' },
+    { q: '会議の　まえに、資料を　コピーして（　）ください。', options: ['おいて', 'しまって', 'みて', 'きて'], ans: 0, exp: '「〜ておく」表示事先做好準備（預先影印好資料）。' }
+  ],
+  N3: [
+    { q: '毎日　練習した（　）、フルマラソンを　完走することができた。', options: ['おかげで', 'せいで', 'くせに', 'ばかりに'], ans: 0, exp: '正面感謝的原因結果用「おかげで」（多得每日練習，先至順利跑完全馬）。' },
+    { q: '来年、東京で　働く（　）なりました。', options: ['ことに', 'ものに', 'ように', 'ために'], ans: 0, exp: '客觀決定或調職安排用「〜ことになる」。' },
+    { q: '日本へ　来た（　）のころは、日本語が　まったく　話せなかった。', options: ['ばかり', 'ところ', 'まま', 'はず'], ans: 0, exp: '「た＋ばかり」表示剛發生不久（剛嚟日本嗰陣時）。' },
+    { q: '彼は　甘いものが　嫌いな（　）が、ダイエット中なので食べない。', options: ['わけではない', 'はずがない', 'にちがいない', 'ものだ'], ans: 0, exp: '「わけではない」表示部分否定（並唔係討厭甜食，只係減肥中唔食）。' },
+    { q: '温かい（　）、どうぞ　お召し上がりください。', options: ['うちに', 'あいだに', 'まえに', 'あとで'], ans: 0, exp: '「〜うちに」表示趁著狀態未改變前（趁熱食）。' },
+    { q: '「確認」の正しい読み方はどれですか。', options: ['かくにん', 'かくりん', 'こうにん', 'がくにん'], ans: 0, exp: '「確認」讀作 かくにん（kakunin）。' },
+    { q: 'チケットが　完売した（　）、会場の　外にも　ファンが　集まっていた。', options: ['にもかかわらず', 'おかげで', 'にたいして', 'につれて'], ans: 0, exp: '「〜にもかかわらず」表示「儘管……卻仍然……」（儘管門票售罄，會場外依然聚集咗好多粉絲）。' },
+    { q: '雨が　激しく　降る（　）、気温が　下がってきた。', options: ['につれて', 'にたいして', 'にくらべて', 'にとって'], ans: 0, exp: '「〜につれて」表示隨著一方變化，另一方也隨之變化（隨著雨勢變大，氣溫下降）。' },
+    { q: '【聽解題】點擊播放語音，選出說話者的語氣：', audio: 'せっかく早起きして並んだのに、限定グッズは目の前で売り切れてしまった。', options: ['非常可惜與無奈', '非常開心與興奮', '毫不在乎', '正在向店員道謝'], ans: 0, exp: '「せっかく〜のに（難得一早起身排隊卻……）」加上「売り切れてしまった」，表達深感可惜無奈。' },
+    { q: 'この　アプリは　操作が　簡単で、初心者（　）使いやすい。', options: ['にとって', 'について', 'に対して', 'によって'], ans: 0, exp: '「〜にとって」表示從某立場/對象來看（對初學者而言很好用）。' }
+  ]
+};
+
+let currentExamLevel = 'N5';
+let userAnswers = {};
+
+function updateCandidateName(val) {
+  const st = loadState();
+  st.candidateName = val.trim() || 'Tony Leung';
+  saveState(st);
+  showToast(`✍️ 考生姓名已更新為：${st.candidateName}`);
+}
+
+function selectExamLevel(lvl) {
+  currentExamLevel = lvl;
+  userAnswers = {};
+  ['N5', 'N4', 'N3'].forEach(l => {
+    document.getElementById('lvl-btn-' + l).classList.toggle('active', l === lvl);
+  });
+  document.getElementById('cert-section').style.display = 'none';
+  renderExam();
+}
+
+function chooseOption(qIdx, oIdx) {
+  userAnswers[qIdx] = oIdx;
+  renderExam();
+}
+
+function renderExam() {
+  const questions = EXAM_BANK[currentExamLevel];
+  const container = document.getElementById('quiz-container');
+  container.innerHTML = questions.map((item, qIdx) => {
+    const chosen = userAnswers[qIdx];
+    return `
+      <div class="card">
+        <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;margin-bottom:8px;">
+          <span class="badge badge-${currentExamLevel.toLowerCase()}">第 ${qIdx + 1} / ${questions.length} 題</span>
+          ${item.audio ? `<button class="btn btn-sm btn-primary" onclick="speakJP('${item.audio}', 0.8)">🔊 播放聽解題語音</button>` : ''}
+        </div>
+        <div style="font-size:1.08rem;font-weight:800;margin-bottom:12px;">${item.q}</div>
+        <div class="grid-2">
+          ${item.options.map((opt, oIdx) => {
+            const isSel = chosen === oIdx;
+            return `
+              <button class="btn" onclick="chooseOption(${qIdx}, ${oIdx})" style="
+                justify-content:flex-start;
+                text-align:left;
+                border-width:2px;
+                border-color:${isSel ? 'var(--indigo)' : 'var(--border)'};
+                background:${isSel ? 'var(--indigo-soft)' : '#fff'};
+              ">
+                <strong>${['A', 'B', 'C', 'D'][oIdx]}.</strong> ${opt}
+              </button>
+            `;
+          }).join('')}
+        </div>
+        <div id="exp-${qIdx}" style="display:none;margin-top:12px;padding:10px 12px;border-radius:10px;background:#F8FAFC;font-size:0.9rem;"></div>
+      </div>
+    `;
+  }).join('') + `
+    <div style="text-align:center;margin:20px 0;">
+      <button class="btn btn-primary" style="font-size:1.05rem;padding:12px 28px;" onclick="submitExam()">📝 提交試卷並批改成績</button>
+    </div>
+  `;
+}
+
+function submitExam() {
+  const questions = EXAM_BANK[currentExamLevel];
+  let correctCount = 0;
+
+  questions.forEach((item, qIdx) => {
+    const chosen = userAnswers[qIdx];
+    const expBox = document.getElementById('exp-' + qIdx);
+    const isRight = chosen === item.ans;
+    if (isRight) correctCount++;
+    expBox.style.display = 'block';
+    expBox.style.borderLeft = `4px solid ${isRight ? 'var(--emerald)' : 'var(--primary)'}`;
+    expBox.innerHTML = `
+      <div style="font-weight:800;color:${isRight ? 'var(--emerald)' : 'var(--primary)'};margin-bottom:4px;">
+        ${isRight ? '✅ 答對！' : `❌ 答錯（正確答案：${['A','B','C','D'][item.ans]}. ${item.options[item.ans]}）`}
+      </div>
+      <div>💡 <strong>解析：</strong>${item.exp}</div>
+    `;
+  });
+
+  const scorePct = Math.round((correctCount / questions.length) * 100);
+  const passed = scorePct >= 70;
+  const certGrade = currentExamLevel === 'N5' ? '草むしり検定 5級' : (currentExamLevel === 'N4' ? '草むしり検定 4級' : '草むしり検定 3級');
+
+  const st = loadState();
+  if (st.examScores[currentExamLevel] === null || scorePct > st.examScores[currentExamLevel]) {
+    st.examScores[currentExamLevel] = scorePct;
+  }
+  if (passed && !st.certificates.includes(certGrade)) {
+    st.certificates.push(certGrade);
+    st.xp += 100;
+  }
+  saveState(st);
+
+  const certSec = document.getElementById('cert-section');
+  certSec.style.display = 'block';
+  certSec.style.borderColor = passed ? 'var(--emerald)' : 'var(--amber)';
+  certSec.style.background = passed ? '#F0FDF4' : '#FFFBEB';
+
+  document.getElementById('result-headline').textContent = passed
+    ? `🎉 合格おめでとう！取得【${certGrade}】資格！`
+    : `💪 差少少就合格喇！（合格線 70%）`;
+  document.getElementById('result-headline').style.color = passed ? 'var(--emerald)' : 'var(--amber)';
+  document.getElementById('result-summary').textContent = `你的 ${currentExamLevel} 模擬測驗得分：${scorePct}%（答對 ${correctCount} / ${questions.length} 題）。${passed ? '以下為你的專屬電子證書，可點擊右上角下載保存！' : '可先查看上方每題粵語解析，再重新挑戰！'}`;
+
+  drawCertificate(st.candidateName || 'Tony Leung', certGrade, currentExamLevel, scorePct, passed);
+  certSec.scrollIntoView({ behavior: 'smooth' });
+}
+
+function drawCertificate(name, gradeTitle, lvl, score, passed) {
+  const canvas = document.getElementById('cert-canvas');
+  const ctx = canvas.getContext('2d');
+  const W = canvas.width, H = canvas.height;
+
+  // Warm cream background
+  ctx.fillStyle = '#FFFDF7';
+  ctx.fillRect(0, 0, W, H);
+
+  // Decorative outer & inner border
+  ctx.strokeStyle = passed ? '#059669' : '#D97706';
+  ctx.lineWidth = 10;
+  ctx.strokeRect(24, 24, W - 48, H - 48);
+
+  ctx.strokeStyle = '#F59E0B';
+  ctx.lineWidth = 3;
+  ctx.strokeRect(40, 40, W - 80, H - 80);
+
+  // Top Header
+  ctx.fillStyle = '#0F172A';
+  ctx.font = 'bold 22px sans-serif';
+  ctx.textAlign = 'center';
+  ctx.fillText('日本草むしり検定協会 × 港人日語 N5–N3 學習平台', W / 2, 95);
+
+  ctx.fillStyle = passed ? '#059669' : '#D97706';
+  ctx.font = 'bold 44px serif';
+  ctx.fillText(passed ? `合格証書（${gradeTitle}）` : `努力奨励証（${gradeTitle} 挑戰中）`, W / 2, 158);
+
+  // Cute decorative emblem circle
+  ctx.beginPath();
+  ctx.arc(W / 2, 232, 42, 0, Math.PI * 2);
+  ctx.fillStyle = '#FEF3C7';
+  ctx.fill();
+  ctx.strokeStyle = '#F59E0B';
+  ctx.lineWidth = 3;
+  ctx.stroke();
+  ctx.fillStyle = '#1E293B';
+  ctx.font = 'bold 28px sans-serif';
+  ctx.fillText('🌱 合格', W / 2, 242);
+
+  // Candidate Name
+  ctx.fillStyle = '#1E293B';
+  ctx.font = 'bold 36px sans-serif';
+  ctx.fillText(`${name}  殿`, W / 2, 325);
+
+  ctx.beginPath();
+  ctx.moveTo(240, 340);
+  ctx.lineTo(660, 340);
+  ctx.strokeStyle = '#94A3B8';
+  ctx.lineWidth = 2;
+  ctx.stroke();
+
+  // Body Text
+  ctx.fillStyle = '#334155';
+  ctx.font = '21px sans-serif';
+  ctx.fillText(`あなたは JLPT ${lvl} 模擬検定試験において ${score}% の優秀な成績を収め、`, W / 2, 392);
+  ctx.fillText(passed ? `「${gradeTitle}」の資格を有することをここに証します。` : 'あと一歩で合格基準に達します。引き続き応援しております！', W / 2, 430);
+
+  // Date & Red Hanko Stamp
+  const today = new Date().toISOString().slice(0, 10);
+  ctx.fillStyle = '#475569';
+  ctx.font = '18px sans-serif';
+  ctx.textAlign = 'left';
+  ctx.fillText(`発行日：${today}`, 90, 520);
+  ctx.fillText('認定機関：HK-JP Learning Platform', 90, 550);
+
+  // Red Hanko Stamp
+  ctx.strokeStyle = '#E11D48';
+  ctx.lineWidth = 4;
+  ctx.strokeRect(700, 475, 110, 95);
+  ctx.fillStyle = '#E11D48';
+  ctx.font = 'bold 20px serif';
+  ctx.textAlign = 'center';
+  ctx.fillText('草むしり', 755, 515);
+  ctx.fillText('検定之印', 755, 548);
+}
+
+function downloadCertificate() {
+  const canvas = document.getElementById('cert-canvas');
+  const a = document.createElement('a');
+  a.href = canvas.toDataURL('image/png');
+  a.download = `kusamushiri-cert-${currentExamLevel}.png`;
+  a.click();
+  showToast('🏅 已下載高清 PNG 證書！');
+}
+
+// Init
+const initSt = loadState();
+document.getElementById('candidate-name').value = initSt.candidateName || 'Tony Leung';
+const eParams = new URLSearchParams(location.search);
+if (eParams.get('level') && EXAM_BANK[eParams.get('level')]) {
+  currentExamLevel = eParams.get('level');
+}
+selectExamLevel(currentExamLevel);
+</script>
+
+<div id="toast" class="toast"></div>
+<footer>
+  <div>🇭🇰 專為香港粵語學習者打造｜支援 <code>localStorage</code> 自動儲存進度 &amp; 自然日語 TTS 發音引擎</div>
+  <div style="display:flex;gap:8px;flex-wrap:wrap;">
+    <button class="btn btn-sm" onclick="exportProgress()">📤 匯出進度備份</button>
+    <button class="btn btn-sm" onclick="importProgress()">📥 匯入進度</button>
+  </div>
+</footer>
+<script>
+const STORAGE_KEY = 'hk_jp_learning_platform_v1';
+
+function getDefaultState() {
+  return {
+    candidateName: 'Tony Leung',
+    kanaMastered: [],
+    lessonsDone: [],
+    practiceDone: [],
+    examScores: { N5: null, N4: null, N3: null },
+    certificates: [],
+    xp: 120,
+    lastVisit: new Date().toISOString().slice(0, 10)
+  };
+}
+
+function loadState() {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if (!raw) return getDefaultState();
+    return Object.assign(getDefaultState(), JSON.parse(raw));
+  } catch (e) {
+    return getDefaultState();
+  }
+}
+
+function saveState(state) {
+  try {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+  } catch (e) {}
+}
+
+function showToast(msg) {
+  const el = document.getElementById('toast');
+  if (!el) return;
+  el.textContent = msg;
+  el.classList.add('show');
+  clearTimeout(window._toastTimer);
+  window._toastTimer = setTimeout(() => el.classList.remove('show'), 2400);
+}
+
+function addXP(points, reason) {
+  const st = loadState();
+  st.xp = (st.xp || 0) + points;
+  saveState(st);
+  if (reason) showToast(`✨ +${points} XP｜${reason}`);
+}
+
+function exportProgress() {
+  const st = loadState();
+  const blob = new Blob([JSON.stringify(st, null, 2)], { type: 'application/json' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = `hk-jp-progress-${new Date().toISOString().slice(0,10)}.json`;
+  a.click();
+  URL.revokeObjectURL(url);
+  showToast('📦 已匯出學習進度 JSON 備份檔');
+}
+
+function importProgress() {
+  const input = document.createElement('input');
+  input.type = 'file';
+  input.accept = '.json';
+  input.onchange = e => {
+    const file = e.target.files[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = ev => {
+      try {
+        const parsed = JSON.parse(ev.target.result);
+        saveState(Object.assign(getDefaultState(), parsed));
+        showToast('✅ 進度匯入成功，即將重新整理頁面！');
+        setTimeout(() => location.reload(), 800);
+      } catch (err) {
+        alert('JSON 格式無效，請確認檔案是否正確。');
+      }
+    };
+    reader.readAsText(file);
+  };
+  input.click();
+}
+
+// Upgraded Japanese TTS Engine (speakJP)
+let selectedJPVoice = null;
+let defaultRate = 0.75;
+
+function initJPVoice() {
+  if (!('speechSynthesis' in window)) return;
+  const voices = window.speechSynthesis.getVoices();
+  const jpVoices = voices.filter(v => v.lang && v.lang.toLowerCase().includes('ja'));
+  if (jpVoices.length > 0) {
+    const preferred = ['Kyoko', 'O-Ren', 'Google 日本語', 'Microsoft Nanami', 'Otoya', 'Haruka'];
+    selectedJPVoice = jpVoices.find(v => preferred.some(p => v.name.includes(p))) || jpVoices[0];
+  }
+  const statusEl = document.getElementById('voice-status');
+  if (statusEl) {
+    statusEl.textContent = selectedJPVoice ? `已連接自然聲線：${selectedJPVoice.name}` : '使用系統預設日語發音引擎';
+  }
+}
+
+if ('speechSynthesis' in window) {
+  window.speechSynthesis.onvoiceschanged = initJPVoice;
+  setTimeout(initJPVoice, 200);
+}
+
+function setGlobalRate(rate) {
+  defaultRate = rate;
+  document.querySelectorAll('.rate-btn').forEach(b => {
+    b.classList.toggle('btn-primary', parseFloat(b.dataset.rate) === rate);
+  });
+  showToast(`🔊 預設朗讀語速已設為 ${rate}x`);
+}
+
+function speakJP(text, rateOverride = null) {
+  if (!('speechSynthesis' in window)) {
+    showToast('⚠️ 瀏覽器不支援語音合成功能');
+    return;
+  }
+  window.speechSynthesis.cancel();
+  const cleanText = text.replace(/（[^）]*）/g, '').replace(/\([^)]*\)/g, '').trim();
+  const utter = new SpeechSynthesisUtterance(cleanText);
+  utter.lang = 'ja-JP';
+  if (selectedJPVoice) utter.voice = selectedJPVoice;
+  utter.rate = rateOverride || defaultRate;
+  utter.pitch = 1.02;
+  window.speechSynthesis.speak(utter);
+}
+
+function speakWordByWord(tokens, containerId) {
+  if (!('speechSynthesis' in window)) return;
+  window.speechSynthesis.cancel();
+  const container = document.getElementById(containerId);
+  const chips = container ? container.querySelectorAll('.token-chip') : [];
+  let idx = 0;
+  function next() {
+    chips.forEach(c => c.classList.remove('speaking'));
+    if (idx >= tokens.length) return;
+    if (chips[idx]) chips[idx].classList.add('speaking');
+    const utter = new SpeechSynthesisUtterance(tokens[idx].jp);
+    utter.lang = 'ja-JP';
+    if (selectedJPVoice) utter.voice = selectedJPVoice;
+    utter.rate = 0.68;
+    utter.onend = () => {
+      idx++;
+      setTimeout(next, 240);
+    };
+    window.speechSynthesis.speak(utter);
+  }
+  next();
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-HK">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>專項練習庫｜聽力・遊日會話・J-Pop 歌詞｜港人日語 N5–N3 互動學習平台</title>
+<style>
+  :root {
+    --bg: #FDFBF7;
+    --card: #FFFFFF;
+    --ink: #1E293B;
+    --muted: #64748B;
+    --border: #E2E8F0;
+    --primary: #E11D48;
+    --primary-soft: #FFE4E6;
+    --indigo: #2563EB;
+    --indigo-soft: #DBEAFE;
+    --emerald: #059669;
+    --emerald-soft: #D1FAE5;
+    --amber: #D97706;
+    --amber-soft: #FEF3C7;
+    --purple: #7C3AED;
+    --purple-soft: #EDE9FE;
+    --shadow: 0 4px 20px rgba(15, 23, 42, 0.06);
+    --radius: 16px;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang HK", "Microsoft JhengHei", "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.65;
+    padding-bottom: 64px;
+  }
+  .navbar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(255, 255, 255, 0.94);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+    padding: 10px 16px;
+  }
+  .nav-inner {
+    max-width: 1120px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+  }
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: var(--ink);
+    font-weight: 800;
+    font-size: 1.08rem;
+  }
+  .brand-badge {
+    background: var(--primary);
+    color: #fff;
+    padding: 3px 9px;
+    border-radius: 8px;
+    font-size: 0.78rem;
+    letter-spacing: 0.5px;
+  }
+  .nav-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  .nav-links a {
+    text-decoration: none;
+    color: var(--muted);
+    font-weight: 600;
+    font-size: 0.9rem;
+    padding: 7px 13px;
+    border-radius: 10px;
+    transition: all 0.18s;
+  }
+  .nav-links a:hover {
+    background: #F1F5F9;
+    color: var(--ink);
+  }
+  .nav-links a.active {
+    background: var(--primary-soft);
+    color: var(--primary);
+  }
+  .container {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 24px 16px;
+  }
+  .hero {
+    background: linear-gradient(135deg, #FFF1F2 0%, #EFF6FF 55%, #ECFDF5 100%);
+    border: 1px solid var(--border);
+    border-radius: 22px;
+    padding: 28px 24px;
+    margin-bottom: 24px;
+    box-shadow: var(--shadow);
+  }
+  .hero h1 {
+    font-size: 1.65rem;
+    font-weight: 800;
+    margin-bottom: 8px;
+    color: #0F172A;
+  }
+  .hero p {
+    color: #475569;
+    font-size: 0.98rem;
+    max-width: 780px;
+  }
+  .card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 20px;
+    box-shadow: var(--shadow);
+    margin-bottom: 20px;
+  }
+  .card-title {
+    font-size: 1.15rem;
+    font-weight: 800;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px; }
+  .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 16px; }
+  .grid-4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px; }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    border: 1px solid var(--border);
+    background: #fff;
+    color: var(--ink);
+    font-weight: 600;
+    font-size: 0.88rem;
+    padding: 8px 14px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.16s;
+    text-decoration: none;
+  }
+  .btn:hover { background: #F8FAFC; transform: translateY(-1px); }
+  .btn-primary { background: var(--primary); color: #fff; border-color: var(--primary); }
+  .btn-primary:hover { background: #BE123C; }
+  .btn-indigo { background: var(--indigo); color: #fff; border-color: var(--indigo); }
+  .btn-indigo:hover { background: #1D4ED8; }
+  .btn-emerald { background: var(--emerald); color: #fff; border-color: var(--emerald); }
+  .btn-emerald:hover { background: #047857; }
+  .btn-sm { padding: 5px 10px; font-size: 0.8rem; border-radius: 8px; }
+  .badge {
+    display: inline-block;
+    padding: 3px 9px;
+    border-radius: 999px;
+    font-size: 0.76rem;
+    font-weight: 700;
+  }
+  .badge-n5 { background: var(--emerald-soft); color: var(--emerald); }
+  .badge-n4 { background: var(--indigo-soft); color: var(--indigo); }
+  .badge-n3 { background: var(--purple-soft); color: var(--purple); }
+  .badge-amber { background: var(--amber-soft); color: var(--amber); }
+  .tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 18px;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 12px;
+  }
+  .tab-btn {
+    padding: 9px 16px;
+    border-radius: 11px;
+    border: 1px solid var(--border);
+    background: #fff;
+    color: var(--muted);
+    font-weight: 700;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.16s;
+  }
+  .tab-btn.active {
+    background: var(--ink);
+    color: #fff;
+    border-color: var(--ink);
+  }
+  .tts-bar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+    background: #F8FAFC;
+    border: 1px solid var(--border);
+    padding: 10px 14px;
+    border-radius: 12px;
+    margin-bottom: 16px;
+    font-size: 0.85rem;
+  }
+  .token-box {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 8px;
+  }
+  .token-chip {
+    background: #F1F5F9;
+    border: 1px solid #CBD5E1;
+    padding: 3px 9px;
+    border-radius: 8px;
+    font-size: 0.82rem;
+    transition: all 0.15s;
+  }
+  .token-chip.speaking {
+    background: var(--amber-soft);
+    border-color: var(--amber);
+    color: #92400E;
+    font-weight: 700;
+    transform: scale(1.05);
+  }
+  .toast {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #0F172A;
+    color: #fff;
+    padding: 10px 18px;
+    border-radius: 12px;
+    font-size: 0.88rem;
+    font-weight: 600;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s;
+    z-index: 999;
+  }
+  .toast.show { opacity: 1; }
+  footer {
+    max-width: 1120px;
+    margin: 28px auto 0;
+    padding: 18px 16px;
+    border-top: 1px solid var(--border);
+    color: var(--muted);
+    font-size: 0.84rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+  }
+</style>
+</head>
+<body>
+<nav class="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="brand">
+      <span class="brand-badge">HK → JP</span>
+      <span>港人日語 N5–N3 學習平台</span>
+    </a>
+    <div class="nav-links">
+      <a href="index.html" class="">🏠 學習總覽</a>
+      <a href="classroom.html" class="">📚 課程教室</a>
+      <a href="practice.html" class="active">🎧 專項練習庫</a>
+      <a href="exam.html" class="">🎓 測驗 &amp; 草むしり検定</a>
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+  <section class="hero">
+    <h1>🎧 專項練習庫（聽力實戰・港人遊日會話・J-Pop 歌詞教室）</h1>
+    <p>透過「先聽後看原文」訓練日語耳朵、掌握日本自由行高頻對話，並以逐詞慢速拆解跟唱 YOASOBI、milet、ONE OK ROCK 等人氣 J-Pop 金曲。</p>
+  </section>
+
+  <div class="tts-bar">
+    <span>🔊 <strong>發音引擎：</strong><span id="voice-status">偵測中...</span></span>
+    <div style="margin-left:auto;display:flex;gap:6px;align-items:center;">
+      <span>語速：</span>
+      <button class="btn btn-sm rate-btn" data-rate="0.55" onclick="setGlobalRate(0.55)">0.55x</button>
+      <button class="btn btn-sm rate-btn btn-primary" data-rate="0.75" onclick="setGlobalRate(0.75)">0.75x</button>
+      <button class="btn btn-sm rate-btn" data-rate="1.0" onclick="setGlobalRate(1.0)">1.0x</button>
+    </div>
+  </div>
+
+  <div class="tabs">
+    <button class="tab-btn active" id="ptab-btn-listening" onclick="switchPracticeTab('listening')">👂 聽力實戰訓練</button>
+    <button class="tab-btn" id="ptab-btn-travel" onclick="switchPracticeTab('travel')">✈️ 港人遊日生存會話</button>
+    <button class="tab-btn" id="ptab-btn-jpop" onclick="switchPracticeTab('jpop')">🎵 J-Pop 歌詞教室</button>
+  </div>
+
+  <!-- TAB 1: LISTENING -->
+  <div id="ppanel-listening">
+    <div id="listening-list"></div>
+  </div>
+
+  <!-- TAB 2: TRAVEL -->
+  <div id="ppanel-travel" style="display:none;">
+    <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px;">
+      <button class="tab-btn active" onclick="filterTravel('ALL', this)">全部場景</button>
+      <button class="tab-btn" onclick="filterTravel('交通 JR/新幹線', this)">🚄 交通 JR/新幹線</button>
+      <button class="tab-btn" onclick="filterTravel('美食點餐', this)">🍜 美食點餐</button>
+      <button class="tab-btn" onclick="filterTravel('購物免稅', this)">🛍️ 購物免稅</button>
+      <button class="tab-btn" onclick="filterTravel('酒店 & 賽事求助', this)">🏨 酒店 &amp; 賽事求助</button>
+    </div>
+    <div id="travel-list" class="grid-2"></div>
+  </div>
+
+  <!-- TAB 3: J-POP -->
+  <div id="ppanel-jpop" style="display:none;">
+    <div id="jpop-list"></div>
+  </div>
+</div>
+
+<script>
+const LISTENING_DRILLS = [
+  {
+    id: 'l1', level: 'N5', title: '題目 1：便利店結帳對話',
+    audio: 'いらっしゃいませ。お弁当は温めますか。あと、レジ袋は必要ですか。',
+    yue: '歡迎光臨。便當需唔需要叮熱？另外，需唔需要膠袋？',
+    question: '店員問了客人哪兩件事？',
+    options: ['是否需要加熱便當，以及是否需要膠袋', '要堂食還是外賣，以及用哪種付款方式', '要多少雙筷子，以及是否需要飲管'],
+    answer: 0
+  },
+  {
+    id: 'l2', level: 'N4', title: '題目 2：新幹線月台廣播',
+    audio: 'まもなく、二番線に、東京行き、のぞみ二十四号が参ります。黄色い点字ブロックの内側までお下がりください。',
+    yue: '開往東京嘅「希望號 24 號」好快會駛入 2 號月台。請退後到黃色盲人引路徑內側。',
+    question: '這班列車的目的地與停靠月台是？',
+    options: ['開往名古屋，1 號月台', '開往東京，2 號月台', '開往新大阪，4 號月台'],
+    answer: 1
+  },
+  {
+    id: 'l3', level: 'N3', title: '題目 3：演唱會周邊商品排隊通知',
+    audio: '本日のライブグッズ販売は、午後二時から開始いたします。なお、お一人様一点までの購入制限がございますので、あらかじめご了承ください。',
+    yue: '今日嘅演唱會周邊商品將於下午兩點開始發售。另外，每人每款限購一件，敬請見諒。',
+    question: '關於周邊商品購買規則，下列哪項正確？',
+    options: ['下午兩點開始售賣，每人限購一件', '下午四點開始售賣，不設購買上限', '只限持 VIP 門票人士購買'],
+    answer: 0
+  }
+];
+
+function renderListening() {
+  const box = document.getElementById('listening-list');
+  box.innerHTML = LISTENING_DRILLS.map((item, idx) => `
+    <div class="card">
+      <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;margin-bottom:10px;">
+        <div>
+          <span class="badge badge-${item.level.toLowerCase()}" style="margin-right:6px;">${item.level}</span>
+          <strong>${item.title}</strong>
+        </div>
+        <div style="display:flex;gap:8px;">
+          <button class="btn btn-sm btn-primary" onclick="speakJP('${item.audio}', 0.75)">🐢 0.75x 慢速聆聽</button>
+          <button class="btn btn-sm btn-indigo" onclick="speakJP('${item.audio}', 1.0)">🔊 1.0x 原速聆聽</button>
+        </div>
+      </div>
+      <p style="font-weight:700;margin-bottom:10px;">❓ 問題：${item.question}</p>
+      <div style="display:flex;flex-direction:column;gap:8px;margin-bottom:12px;">
+        ${item.options.map((opt, oIdx) => `
+          <button class="btn" style="justify-content:flex-start;text-align:left;" onclick="checkListening(${idx}, ${oIdx}, this)">
+            ${['A', 'B', 'C'][oIdx]}. ${opt}
+          </button>
+        `).join('')}
+      </div>
+      <div id="l-ans-${idx}" style="display:none;background:#F8FAFC;border-left:4px solid var(--emerald);padding:12px;border-radius:10px;">
+        <div style="font-weight:800;margin-bottom:4px;">📜 日語原文：${item.audio}</div>
+        <div style="color:var(--indigo);font-weight:600;">🇭🇰 粵語翻譯：${item.yue}</div>
+      </div>
+    </div>
+  `).join('');
+}
+
+function checkListening(idx, chosen, btn) {
+  const item = LISTENING_DRILLS[idx];
+  const ansBox = document.getElementById('l-ans-' + idx);
+  ansBox.style.display = 'block';
+  if (chosen === item.answer) {
+    btn.style.background = 'var(--emerald-soft)';
+    btn.style.borderColor = 'var(--emerald)';
+    addXP(20, '聽力題答對！');
+  } else {
+    btn.style.background = 'var(--primary-soft)';
+    btn.style.borderColor = 'var(--primary)';
+    showToast('❌ 再聽一次原文對照睇下邊度聽漏咗！');
+  }
+}
+
+const TRAVEL_PHRASES = [
+  { cat: '交通 JR/新幹線', jp: '自由席の切符を二枚ください。', yue: '唔該俾兩張自由席車飛我。', tokens: [{jp:'自由席の',yue:'自由席嘅'},{jp:'切符を',yue:'車飛'},{jp:'二枚ください',yue:'唔該俾兩張'}] },
+  { cat: '交通 JR/新幹線', jp: 'この電車は指定席が必要ですか。', yue: '呢班電車需唔需要劃位（指定席）？', tokens: [{jp:'この電車は',yue:'呢班電車'},{jp:'指定席が',yue:'指定席'},{jp:'必要ですか',yue:'需要嗎？'}] },
+  { cat: '美食點餐', jp: '砂糖なしのブラックコーヒーをお願いします。', yue: '唔該要一杯無糖齋啡。', tokens: [{jp:'砂糖なしの',yue:'無糖嘅'},{jp:'ブラックコーヒーを',yue:'齋啡'},{jp:'お願いします',yue:'唔該要'}] },
+  { cat: '美食點餐', jp: 'お会計は別々でお願いします。', yue: '唔該分開埋單。', tokens: [{jp:'お会計は',yue:'埋單'},{jp:'別々で',yue:'分開'},{jp:'お願いします',yue:'唔該'}] },
+  { cat: '購物免稅', jp: '免税の手続きはどこでできますか。', yue: '請問喺邊度可以辦理退稅手續？', tokens: [{jp:'免税の手続きは',yue:'免稅手續'},{jp:'どこで',yue:'喺邊度'},{jp:'できますか',yue:'可以辦理？'}] },
+  { cat: '購物免稅', jp: '袋は結構です。そのまま入れます。', yue: '唔使膠袋喇，我自己直接放入袋就得。', tokens: [{jp:'袋は結構です',yue:'唔使袋喇'},{jp:'そのまま',yue:'就咁直接'},{jp:'入れます',yue:'放入去'}] },
+  { cat: '酒店 & 賽事求助', jp: 'チェックイン前ですが、荷物を預かってもらえますか。', yue: '雖然未到 Check-in 時間，可唔可以幫我寄存行李先？', tokens: [{jp:'チェックイン前ですが',yue:'雖然未到入住時間'},{jp:'荷物を',yue:'行李'},{jp:'預かってもらえますか',yue:'可唔可以代為寄存？'}] },
+  { cat: '酒店 & 賽事求助', jp: 'マラソンのスタート地点まで歩いて何分かかりますか。', yue: '行路去馬拉松起點大概要幾多分鐘？', tokens: [{jp:'マラソンの',yue:'馬拉松嘅'},{jp:'スタート地点まで',yue:'去到起點'},{jp:'歩いて何分かかりますか',yue:'行路要幾多分鐘？'}] }
+];
+
+let travelCat = 'ALL';
+
+function filterTravel(cat, btn) {
+  travelCat = cat;
+  document.querySelectorAll('#ppanel-travel .tab-btn').forEach(b => b.classList.remove('active'));
+  if (btn) btn.classList.add('active');
+  renderTravel();
+}
+
+function renderTravel() {
+  const list = document.getElementById('travel-list');
+  const items = travelCat === 'ALL' ? TRAVEL_PHRASES : TRAVEL_PHRASES.filter(t => t.cat === travelCat);
+  list.innerHTML = items.map((t, idx) => `
+    <div class="card" style="margin-bottom:0;">
+      <span class="badge badge-indigo" style="margin-bottom:8px;">${t.cat}</span>
+      <div style="font-size:1.12rem;font-weight:800;margin-bottom:4px;">${t.jp}</div>
+      <div style="font-size:0.92rem;color:var(--primary);font-weight:700;margin-bottom:10px;">🇭🇰 ${t.yue}</div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:8px;">
+        <button class="btn btn-sm btn-primary" onclick="speakJP('${t.jp}')">🔊 朗讀</button>
+        <button class="btn btn-sm btn-indigo" onclick="speakWordByWord(${JSON.stringify(t.tokens).replace(/"/g, '&quot;')}, 'tr-tok-${idx}')">🐢 逐詞慢速拆解</button>
+      </div>
+      <div id="tr-tok-${idx}" class="token-box">
+        ${t.tokens.map(tok => `<span class="token-chip"><strong>${tok.jp}</strong>｜${tok.yue}</span>`).join('')}
+      </div>
+    </div>
+  `).join('');
+}
+
+const JPOP_SONGS = [
+  {
+    song: 'YOASOBI —《ラブレター (Love Letter)》',
+    level: 'N4–N3',
+    lyricJp: 'いつもありがとう。伝えたいことがたくさんあるんだ。',
+    lyricYue: '一直以嚟多謝你。我有好多說話好想同你講呀。',
+    grammarNote: '「伝えたいこと」＝ 動詞ます形去ます＋たい＋こと（想傳達的事情）；「〜んだ」為口語解釋/強調語氣。',
+    tokens: [{jp:'いつも',yue:'一直/成日'},{jp:'ありがとう',yue:'多謝'},{jp:'伝えたいことが',yue:'想傳達嘅事'},{jp:'たくさんあるんだ',yue:'有好多呀'}]
+  },
+  {
+    song: 'milet —《inside you》',
+    level: 'N3',
+    lyricJp: '言葉にできない想いを、夜空に溶かしていく。',
+    lyricYue: '將無法化作言語嘅思念，慢慢融入夜空之中。',
+    grammarNote: '「言葉にできない」＝ 無法用言語表達（可能形否定）；「〜ていく」表示動作由近及遠持續演變。',
+    tokens: [{jp:'言葉にできない',yue:'無法化作言語嘅'},{jp:'想いを',yue:'思念'},{jp:'夜空に',yue:'向夜空'},{jp:'溶かしていく',yue:'漸漸融化'}]
+  },
+  {
+    song: 'ONE OK ROCK —《Wherever you are》',
+    level: 'N4',
+    lyricJp: '君がどこにいても、僕はいつもそばにいるよ。',
+    lyricYue: '無論你身在何處，我都會一直陪喺你身邊。',
+    grammarNote: '「疑問詞＋ても」＝ 無論……都……（どこにいても＝無論喺邊度）；「そばにいる」＝ 喺身邊（有生命存在用いる）。',
+    tokens: [{jp:'君が',yue:'你'},{jp:'どこにいても',yue:'無論喺邊度'},{jp:'僕はいつも',yue:'我一直都'},{jp:'そばにいるよ',yue:'喺你身邊呀'}]
+  },
+  {
+    song: 'ちいかわ（ハチワレ）—《ひとりごつ》',
+    level: 'N5',
+    lyricJp: '生乾きの感じ、ちょっと気になるけれど、今日も草むしり頑張ろう。',
+    lyricYue: '雖然衫未乾透嘅感覺有少少令人在意，但今日都要繼續努力除草！',
+    grammarNote: '「生乾き（なまかわき）」＝ 半乾濕；「気になる」＝ 令人在意/掛心；「頑張ろう」＝ 意向形（一齊加油吧！）。',
+    tokens: [{jp:'生乾きの感じ',yue:'半乾濕嘅感覺'},{jp:'ちょっと気になるけれど',yue:'雖然有少少在意但'},{jp:'今日も',yue:'今日都'},{jp:'草むしり頑張ろう',yue:'除草加油吧'}]
+  }
+];
+
+function renderJPop() {
+  const list = document.getElementById('jpop-list');
+  list.innerHTML = JPOP_SONGS.map((s, idx) => `
+    <div class="card">
+      <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;margin-bottom:8px;">
+        <strong style="font-size:1.15rem;color:var(--primary);">🎵 ${s.song}</strong>
+        <span class="badge badge-n3">難度 ${s.level}</span>
+      </div>
+      <div style="font-size:1.22rem;font-weight:800;margin-bottom:4px;">${s.lyricJp}</div>
+      <div style="font-size:0.95rem;color:var(--indigo);font-weight:600;margin-bottom:10px;">🇭🇰 歌詞意譯：${s.lyricYue}</div>
+      <p style="font-size:0.88rem;color:var(--muted);background:#F8FAFC;padding:10px 12px;border-radius:10px;margin-bottom:10px;">
+        📖 <strong>歌詞文法拆解：</strong>${s.grammarNote}
+      </p>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:8px;">
+        <button class="btn btn-sm btn-primary" onclick="speakJP('${s.lyricJp}', 0.75)">🐢 0.75x 慢速跟讀</button>
+        <button class="btn btn-sm" onclick="speakJP('${s.lyricJp}', 1.0)">🔊 1.0x 原速朗讀</button>
+        <button class="btn btn-sm btn-indigo" onclick="speakWordByWord(${JSON.stringify(s.tokens).replace(/"/g, '&quot;')}, 'jp-tok-${idx}')">✨ 逐詞慢速拆解</button>
+      </div>
+      <div id="jp-tok-${idx}" class="token-box">
+        ${s.tokens.map(tok => `<span class="token-chip"><strong>${tok.jp}</strong>｜${tok.yue}</span>`).join('')}
+      </div>
+    </div>
+  `).join('');
+}
+
+function switchPracticeTab(tab) {
+  ['listening', 'travel', 'jpop'].forEach(t => {
+    document.getElementById('ppanel-' + t).style.display = (t === tab) ? 'block' : 'none';
+    document.getElementById('ptab-btn-' + t).classList.toggle('active', t === tab);
+  });
+}
+
+const pParams = new URLSearchParams(location.search);
+if (pParams.get('tab')) switchPracticeTab(pParams.get('tab'));
+
+renderListening();
+renderTravel();
+renderJPop();
+</script>
+
+<div id="toast" class="toast"></div>
+<footer>
+  <div>🇭🇰 專為香港粵語學習者打造｜支援 <code>localStorage</code> 自動儲存進度 &amp; 自然日語 TTS 發音引擎</div>
+  <div style="display:flex;gap:8px;flex-wrap:wrap;">
+    <button class="btn btn-sm" onclick="exportProgress()">📤 匯出進度備份</button>
+    <button class="btn btn-sm" onclick="importProgress()">📥 匯入進度</button>
+  </div>
+</footer>
+<script>
+const STORAGE_KEY = 'hk_jp_learning_platform_v1';
+
+function getDefaultState() {
+  return {
+    candidateName: 'Tony Leung',
+    kanaMastered: [],
+    lessonsDone: [],
+    practiceDone: [],
+    examScores: { N5: null, N4: null, N3: null },
+    certificates: [],
+    xp: 120,
+    lastVisit: new Date().toISOString().slice(0, 10)
+  };
+}
+
+function loadState() {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if (!raw) return getDefaultState();
+    return Object.assign(getDefaultState(), JSON.parse(raw));
+  } catch (e) {
+    return getDefaultState();
+  }
+}
+
+function saveState(state) {
+  try {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+  } catch (e) {}
+}
+
+function showToast(msg) {
+  const el = document.getElementById('toast');
+  if (!el) return;
+  el.textContent = msg;
+  el.classList.add('show');
+  clearTimeout(window._toastTimer);
+  window._toastTimer = setTimeout(() => el.classList.remove('show'), 2400);
+}
+
+function addXP(points, reason) {
+  const st = loadState();
+  st.xp = (st.xp || 0) + points;
+  saveState(st);
+  if (reason) showToast(`✨ +${points} XP｜${reason}`);
+}
+
+function exportProgress() {
+  const st = loadState();
+  const blob = new Blob([JSON.stringify(st, null, 2)], { type: 'application/json' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = `hk-jp-progress-${new Date().toISOString().slice(0,10)}.json`;
+  a.click();
+  URL.revokeObjectURL(url);
+  showToast('📦 已匯出學習進度 JSON 備份檔');
+}
+
+function importProgress() {
+  const input = document.createElement('input');
+  input.type = 'file';
+  input.accept = '.json';
+  input.onchange = e => {
+    const file = e.target.files[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = ev => {
+      try {
+        const parsed = JSON.parse(ev.target.result);
+        saveState(Object.assign(getDefaultState(), parsed));
+        showToast('✅ 進度匯入成功，即將重新整理頁面！');
+        setTimeout(() => location.reload(), 800);
+      } catch (err) {
+        alert('JSON 格式無效，請確認檔案是否正確。');
+      }
+    };
+    reader.readAsText(file);
+  };
+  input.click();
+}
+
+// Upgraded Japanese TTS Engine (speakJP)
+let selectedJPVoice = null;
+let defaultRate = 0.75;
+
+function initJPVoice() {
+  if (!('speechSynthesis' in window)) return;
+  const voices = window.speechSynthesis.getVoices();
+  const jpVoices = voices.filter(v => v.lang && v.lang.toLowerCase().includes('ja'));
+  if (jpVoices.length > 0) {
+    const preferred = ['Kyoko', 'O-Ren', 'Google 日本語', 'Microsoft Nanami', 'Otoya', 'Haruka'];
+    selectedJPVoice = jpVoices.find(v => preferred.some(p => v.name.includes(p))) || jpVoices[0];
+  }
+  const statusEl = document.getElementById('voice-status');
+  if (statusEl) {
+    statusEl.textContent = selectedJPVoice ? `已連接自然聲線：${selectedJPVoice.name}` : '使用系統預設日語發音引擎';
+  }
+}
+
+if ('speechSynthesis' in window) {
+  window.speechSynthesis.onvoiceschanged = initJPVoice;
+  setTimeout(initJPVoice, 200);
+}
+
+function setGlobalRate(rate) {
+  defaultRate = rate;
+  document.querySelectorAll('.rate-btn').forEach(b => {
+    b.classList.toggle('btn-primary', parseFloat(b.dataset.rate) === rate);
+  });
+  showToast(`🔊 預設朗讀語速已設為 ${rate}x`);
+}
+
+function speakJP(text, rateOverride = null) {
+  if (!('speechSynthesis' in window)) {
+    showToast('⚠️ 瀏覽器不支援語音合成功能');
+    return;
+  }
+  window.speechSynthesis.cancel();
+  const cleanText = text.replace(/（[^）]*）/g, '').replace(/\([^)]*\)/g, '').trim();
+  const utter = new SpeechSynthesisUtterance(cleanText);
+  utter.lang = 'ja-JP';
+  if (selectedJPVoice) utter.voice = selectedJPVoice;
+  utter.rate = rateOverride || defaultRate;
+  utter.pitch = 1.02;
+  window.speechSynthesis.speak(utter);
+}
+
+function speakWordByWord(tokens, containerId) {
+  if (!('speechSynthesis' in window)) return;
+  window.speechSynthesis.cancel();
+  const container = document.getElementById(containerId);
+  const chips = container ? container.querySelectorAll('.token-chip') : [];
+  let idx = 0;
+  function next() {
+    chips.forEach(c => c.classList.remove('speaking'));
+    if (idx >= tokens.length) return;
+    if (chips[idx]) chips[idx].classList.add('speaking');
+    const utter = new SpeechSynthesisUtterance(tokens[idx].jp);
+    utter.lang = 'ja-JP';
+    if (selectedJPVoice) utter.voice = selectedJPVoice;
+    utter.rate = 0.68;
+    utter.onend = () => {
+      idx++;
+      setTimeout(next, 240);
+    };
+    window.speechSynthesis.speak(utter);
+  }
+  next();
+}
+</script>
+</body>
+</html>
